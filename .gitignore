@@ -23,3 +23,9 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.log
+
+# Generated outputs
+*.gif
+visualizations/
+test_*_config/DICe_solution_*.displacement.png
+test_*_config/DICe_solution_*.strain.png
