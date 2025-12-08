@@ -28,19 +28,52 @@ python3 dice_config_generator.py \
 
 **Output:**
 - `input.xml` - DICe input configuration
-- `params.xml` - Correlation parameters
+- `params.xml` - Correlation parameters  
 - `subsets.txt` - Region of interest definition
 - `sequence_info.json` - Sequence metadata
+
+### visualize_dice_output.py
+
+Visualize displacement vectors and strain fields from a single DICe output file.
+
+**Usage:**
+```bash
+# Displacement vectors
+python3 visualize_dice_output.py DICe_solution_050.txt --scale 5 --summary
+
+# Strain field
+python3 visualize_dice_output.py DICe_solution_050.txt --strain --strain-component VSG_STRAIN_XX
+
+# Without background image
+python3 visualize_dice_output.py DICe_solution_050.txt --no-background -o output.png
+```
+
+### visualize_dice_animation.py
+
+Generate animated GIF showing displacement field evolution over an image sequence.
+
+**Usage:**
+```bash
+python3 visualize_dice_animation.py \
+    --image-dir /path/to/images \
+    --dice-dir ./dice_output \
+    --output animation.gif \
+    --scale 5 --fps 5
+```
 
 ## Requirements
 
 - Python 3.8+
 - Pillow (PIL)
+- NumPy
+- Pandas
+- Matplotlib
+- imageio
 - DICe (compiled binary)
 
 ## Installation
 ```bash
-pip install Pillow
+pip install -r requirements.txt
 ```
 
 ## Project Context
