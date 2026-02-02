@@ -8,67 +8,35 @@ This toolkit automates the DICe workflow for generating ground truth displacemen
 
 ## Tools
 
-### dice_config_generator.py
+### Configuration Generation
 
-Automatically generates DICe configuration files for image sequences.
+**dice_config_generator.py** - Automatically generates DICe configuration files (input.xml, params.xml, subsets.txt) for image sequences.
 
-**Usage:**
-```bash
-python3 dice_config_generator.py <image_dir> <output_dir> [--subset-size SIZE] [--step-size SIZE]
-```
+### Data Processing Pipeline
 
-**Example:**
-```bash
-python3 dice_config_generator.py \
-    "/path/to/image/sequence" \
-    "./output_config" \
-    --subset-size 41 \
-    --step-size 50
-```
+**preprocess_sem_images.py** - Removes SEM metadata bars from images and standardizes format for DICe processing.
 
-**Output:**
-- `input.xml` - DICe input configuration
-- `params.xml` - Correlation parameters  
-- `subsets.txt` - Region of interest definition
-- `sequence_info.json` - Sequence metadata
+**dice_to_dense.py** - Converts sparse DICe output (~340 points) to dense per-pixel displacement fields (~900k points) using interpolation.
 
-### visualize_dice_output.py
+**batch_dice_to_dense.py** - Batch version of dice_to_dense.py for processing multiple sequences.
 
-Visualize displacement vectors and strain fields from a single DICe output file.
+**batch_process_all.py** - Complete end-to-end pipeline: preprocessing → DICe → dense conversion.
 
-**Usage:**
-```bash
-# Displacement vectors
-python3 visualize_dice_output.py DICe_solution_050.txt --scale 5 --summary
+### Quality Analysis
 
-# Strain field
-python3 visualize_dice_output.py DICe_solution_050.txt --strain --strain-component VSG_STRAIN_XX
+**analyze_dice_quality.py** - Analyzes DICe output quality using SIGMA, GAMMA, and MATCH metrics.
 
-# Without background image
-python3 visualize_dice_output.py DICe_solution_050.txt --no-background -o output.png
-```
+### Visualization
 
-### visualize_dice_animation.py
+**visualize_dice_output.py** - Visualizes displacement vectors and strain fields from DICe output.
 
-Generate animated GIF showing displacement field evolution over an image sequence.
-
-**Usage:**
-```bash
-python3 visualize_dice_animation.py \
-    --image-dir /path/to/images \
-    --dice-dir ./dice_output \
-    --output animation.gif \
-    --scale 5 --fps 5
-```
+**visualize_dice_animation.py** - Generates animated GIF showing displacement field evolution.
 
 ## Requirements
 
 - Python 3.8+
-- Pillow (PIL)
-- NumPy
-- Pandas
-- Matplotlib
-- imageio
+- NumPy, SciPy, Pandas
+- Pillow, Matplotlib, imageio
 - DICe (compiled binary)
 
 ## Installation
@@ -83,7 +51,6 @@ Part of OSU Capstone CS.057: ML-Powered Digital Twin for Material Deformation An
 **Related Repositories:**
 - [EnhancingDeformationAnalysisUI](https://github.com/OSU-Enhancing-Deformation-Analysis/EnhancingDeformationAnalysisUI)
 - [ML-Model](https://github.com/OSU-Enhancing-Deformation-Analysis/ML-Model)
-- [dice-model-comparison](https://github.com/OSU-Enhancing-Deformation-Analysis/dice-model-comparison)
 
 ## Contributors
 

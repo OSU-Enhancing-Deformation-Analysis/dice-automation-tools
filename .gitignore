@@ -29,3 +29,7 @@ Thumbs.db
 visualizations/
 test_*_config/DICe_solution_*.displacement.png
 test_*_config/DICe_solution_*.strain.png
+CLAUDE_CONTEXT.md
+ml_training_data/
+processed_datasets/
+*.csv
