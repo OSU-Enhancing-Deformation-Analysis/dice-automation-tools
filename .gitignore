@@ -33,3 +33,7 @@ CLAUDE_CONTEXT.md
 ml_training_data/
 processed_datasets/
 *.csv
+archive/
+processed_datasets/
+__pycache__/
+visualizations/
