@@ -37,3 +37,5 @@ archive/
 processed_datasets/
 __pycache__/
 visualizations/
+exploration_results/
+.dice/
