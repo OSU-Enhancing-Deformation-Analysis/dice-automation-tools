@@ -29,13 +29,31 @@ Thumbs.db
 visualizations/
 test_*_config/DICe_solution_*.displacement.png
 test_*_config/DICe_solution_*.strain.png
-CLAUDE_CONTEXT.md
 ml_training_data/
 processed_datasets/
 *.csv
 archive/
-processed_datasets/
-__pycache__/
-visualizations/
 exploration_results/
 .dice/
+.codex
+CLAUDE.md
+AGENTS.md
+
+# Personal shell scripts
+run_overnight.sh
+
+# Large DICe exploration results (regeneratable, multi-GB)
+exploration_results_eswg007_ref60/
+exploration_results_eswg007_ref60_rerun/
+exploration_results_full/
+
+# Training tile outputs (regeneratable from DICe + generate_tiles.py)
+training_tiles_128/
+training_tiles_128_codex/
+training_tiles_128_v2/
+
+# Debug / exploration PNGs at repo root
+coordinate_test*.png
+interval_analysis*.png
+tile_samples.png
+tile_summary.png
