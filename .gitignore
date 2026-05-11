@@ -57,3 +57,7 @@ coordinate_test*.png
 interval_analysis*.png
 tile_samples.png
 tile_summary.png
+
+demo_eswg007_systematic_merged_absolute/
+demo_eswg007_systematic_absolute_grid/
+training_tiles_128_systematic/
